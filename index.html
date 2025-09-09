@@ -37,12 +37,15 @@
     padding: 25px;
     width: 320px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.5s ease, background 0.3s;
+    cursor: pointer;
+    vertical-align: top;
+    text-align: left;
   }
 
   .donate-block:hover {
-    transform: scale(1.05);
-    background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+    transform: scale(1.03);
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
   }
 
   .donate-block h2 {
@@ -50,34 +53,42 @@
     font-size: 1.5em;
     margin-bottom: 10px;
     text-shadow: 1px 1px 4px #000;
+    text-align: center;
   }
 
   .donate-block p {
     font-size: 1em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #ddd;
+    word-wrap: break-word;
+  }
+
+  .qr-container {
+    text-align: center;
+    margin-top: 10px;
   }
 
   img.qr {
-    width: 200px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
+    width: 250px;
+    max-width: 100%;
+    transition: transform 0.4s ease;
+    border-radius: 12px;
   }
 
   img.qr:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
 
   .copy-btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
     background: #00bfff;
     color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.95em;
     transition: background 0.3s;
   }
 
@@ -94,6 +105,7 @@
     border-radius: 12px;
     line-height: 1.6;
     box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    word-wrap: break-word;
   }
 
   .instruction h3 {
@@ -118,25 +130,29 @@
 <!-- Monobank -->
 <div class="donate-block">
   <h2>💳 Monobank</h2>
-  <p>Пополнение возможно из любого украинского банка или наличными через отделение. Указывайте при переводе: "Поддержка стрима".</p>
+  <p>Пополнение возможно из любого украинского банка или наличными через отделение.</p>
+  <p>Указывайте при переводе: "<b>Поддержка стрима</b>"</p>
   <p>Номер карты:</p>
-  <p id="card-number" style="font-weight:bold; font-size:1.2em;">4874 1000 2768 2767</p>
-  <button class="copy-btn" onclick="copyText('card-number')">Скопировать номер</button>
-  <img class="qr" src="monobank_qr.png" alt="Monobank QR">
+  <p id="card-number" style="font-weight:bold; font-size:1.2em; word-break: break-all;">4874 1000 2768 2767</p>
+  <button class="copy-btn" onclick="copyText('card-number')">Скопировать номер карты</button>
+  <div class="qr-container">
+    <img class="qr" src="monobank_qr.png" alt="Monobank QR">
+  </div>
 </div>
 
 <!-- USDT TRC20 -->
 <div class="donate-block">
   <h2>🪙 USDT TRC20</h2>
-  <p>Инструкция для перевода:</p>
   <ol class="instruction">
-    <li>Сканируйте QR-код или скопируйте адрес: <b id="crypto-address">TYGnbwTMHSgLRehxwUm9XZ3z5o45GuWTeR</b></li>
+    <li>Сканируйте QR-код или скопируйте адрес: <b id="crypto-address" style="word-break: break-all;">TYGnbwTMHSgLRehxwUm9XZ3z5o45GuWTeR</b></li>
     <li>Выберите сеть <b>TRC20 (Tron)</b></li>
     <li>Введите сумму и отправьте</li>
     <li>Дождитесь подтверждения</li>
   </ol>
   <button class="copy-btn" onclick="copyText('crypto-address')">Скопировать адрес</button>
-  <img class="qr" src="usdt_qr.png" alt="USDT QR">
+  <div class="qr-container">
+    <img class="qr" src="usdt_qr.png" alt="USDT QR">
+  </div>
 </div>
 
 <!-- Благодарность -->
